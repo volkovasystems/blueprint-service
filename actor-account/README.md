@@ -1,3 +1,3 @@
-# Template Platform Service
+# Blueprint Platform Service
 
-## Template Actor Account Service
+## Blueprint Actor Account Service

@@ -1,5 +1,5 @@
-# Template Platform Service
+# Blueprint Platform Service
 
-## Template Platform Service General Schema
+## Blueprint Platform Service General Schema
 
 ----

@@ -1,3 +1,3 @@
-# Template Platform Service
+# Blueprint Platform Service
 
-## Template Actor Permission Service
+## Blueprint Actor Permission Service

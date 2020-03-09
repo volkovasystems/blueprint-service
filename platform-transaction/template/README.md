@@ -1,7 +1,7 @@
-# Template Platform Service
+# Blueprint Platform Service
 
-## Template platform transaction Service
+## Blueprint platform transaction Service
 
-### Template platform transaction Service Template
+### Blueprint platform transaction Service Blueprint
 	This should only contain template code needed for
 	any script or procedure generation.

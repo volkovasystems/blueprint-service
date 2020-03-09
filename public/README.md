@@ -1,5 +1,5 @@
-# Template Platform Service
+# Blueprint Platform Service
 
-## Template Platform Service General Public
+## Blueprint Platform Service General Public
 
 ----

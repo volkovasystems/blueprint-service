@@ -1,27 +1,27 @@
 {
-  "name": "template-service",
+  "name": "blueprint-service",
   "version": "0.0.0",
-  "description": "Template Service",
+  "description": "Blueprint Service",
   "main": "index.js",
   "bin": {
-    "template-service": "shell.js"
+    "blueprint-service": "shell.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:volkovasystems/template-service.git"
+    "url": "git@github.com:volkovasystems/blueprint-service.git"
   },
   "keywords": [
-    "template-service",
+    "blueprint-service",
     "service"
   ],
   "author": [
     "Richeve S. Bebedor <richeve.bebedor@gmail.com>"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/volkovasystems/template-service#readme",
+  "homepage": "https://github.com/volkovasystems/blueprint-service#readme",
   "engines": {
     "node": "^12.15.0",
     "npm": "^6.13.0"

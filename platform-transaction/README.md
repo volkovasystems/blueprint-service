@@ -1,3 +1,3 @@
-# Template Platform Service
+# Blueprint Platform Service
 
-## Template Platform Transaction Service
+## Blueprint Platform Transaction Service

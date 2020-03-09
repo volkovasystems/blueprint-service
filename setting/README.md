@@ -1,5 +1,5 @@
-# Template Platform Service
+# Blueprint Platform Service
 
-## Template Platform Service General Setting
+## Blueprint Platform Service General Setting
 
 ----

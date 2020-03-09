@@ -1,7 +1,7 @@
-# Template Platform Service
+# Blueprint Platform Service
 
-## Template Platform Structure Service
+## Blueprint Platform Structure Service
 
-### Template Platform Structure Trash
+### Blueprint Platform Structure Trash
 
 ----

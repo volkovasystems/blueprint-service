@@ -1,3 +1,3 @@
-# Template Platform Service
+# Blueprint Platform Service
 
-## Template Account Security Service
+## Blueprint Account Security Service

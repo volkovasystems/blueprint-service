@@ -1,7 +1,7 @@
-# Template Platform Service
+# Blueprint Platform Service
 
-## Template Platform Structure Service
+## Blueprint Platform Structure Service
 
-### Template Platform Structure Target Service
+### Blueprint Platform Structure Target Service
 
 ----

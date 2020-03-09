@@ -1,3 +1,3 @@
-# Template Platform Service
+# Blueprint Platform Service
 
-## Template Actor Group Service
+## Blueprint Actor Group Service
