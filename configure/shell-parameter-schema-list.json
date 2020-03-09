@@ -1,0 +1,77 @@
+[
+	{
+		"namespace": "platform-directory",
+		"title": "Plaform Directory Option",
+		"description": "",
+		"value": "platformDirectory",
+
+		"type": "string",
+		"property": "platformDirectory",
+		"optionProperty": "platf-dir",
+		"instruction": "",
+		"example": "",
+		"defaultValue": "",
+
+		"order": 0
+	},
+	{
+		"namespace": "platform-environment",
+		"title": "Plaform Environment Option",
+		"description": "",
+		"value": "platformEnvironment",
+
+		"type": "string",
+		"property": "platformEnvironment",
+		"optionProperty": "platf-env",
+		"instruction": "",
+		"example": "",
+		"defaultValue": "local",
+
+		"order": 0
+	},
+	{
+		"namespace": "platform-service",
+		"title": "Plaform Service Option",
+		"description": "",
+		"value": "platformService",
+
+		"type": "string",
+		"property": "platformService",
+		"optionProperty": "platf-serv",
+		"instruction": "",
+		"example": "",
+		"defaultValue": "",
+
+		"order": 0
+	},
+	{
+		"namespace": "platform-ip",
+		"title": "Plaform IP Option",
+		"description": "",
+		"value": "platformIPAddress",
+
+		"type": "string",
+		"property": "platformIPAddress",
+		"optionProperty": "platf-ip",
+		"instruction": "",
+		"example": "",
+		"defaultValue": "0.0.0.0",
+
+		"order": 0
+	},
+	{
+		"namespace": "platform-port",
+		"title": "Plaform Port Option",
+		"description": "",
+		"value": "platformPortNumber",
+
+		"type": "number",
+		"property": "platformPortNumber",
+		"optionProperty": "platf-port",
+		"instruction": "",
+		"example": "",
+		"defaultValue": 54321,
+
+		"order": 0
+	}
+]

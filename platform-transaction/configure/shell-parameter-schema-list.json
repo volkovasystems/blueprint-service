@@ -1,0 +1,62 @@
+[
+	{
+		"namespace": "platform-directory",
+		"title": "Plaform Directory Option",
+		"description": "",
+		"value": "platformDirectory",
+
+		"type": "string",
+		"property": "platformDirectory",
+		"optionProperty": "platf-dir",
+		"instruction": "",
+		"example": "",
+		"defaultValue": "",
+
+		"platform": "platform-transaction"
+	},
+	{
+		"namespace": "platform-environment",
+		"title": "Plaform Environment Option",
+		"description": "",
+		"value": "platformEnvironment",
+
+		"type": "string",
+		"property": "platformEnvironment",
+		"optionProperty": "platf-env",
+		"instruction": "",
+		"example": "",
+		"defaultValue": "local",
+
+		"platform": "platform-transaction"
+	},
+	{
+		"namespace": "platform-ip",
+		"title": "Plaform IP Option",
+		"description": "",
+		"value": "platformIPAddress",
+
+		"type": "string",
+		"property": "platformIPAddress",
+		"optionProperty": "platf-ip",
+		"instruction": "",
+		"example": "",
+		"defaultValue": "0.0.0.0",
+
+		"platform": "platform-transaction"
+	},
+	{
+		"namespace": "platform-port",
+		"title": "Plaform Port Option",
+		"description": "",
+		"value": "platformPortNumber",
+
+		"type": "number",
+		"property": "platformPortNumber",
+		"optionProperty": "platf-port",
+		"instruction": "",
+		"example": "",
+		"defaultValue": 54321,
+
+		"platform": "platform-transaction"
+	}
+]
