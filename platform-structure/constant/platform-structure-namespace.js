@@ -1,10 +1,12 @@
 "use strict";
 
-const harden = require( "harden" );
+const hardenProperty = (
+	require( `${ PLATFORM_UTILITY_PATH }/harden-property.js` )
+);
 
 const PLATFORM_STRUCTURE_NAMESPACE = "platform-structure";
 
-harden(
+hardenProperty(
 	"PLATFORM_STRUCTURE_NAMESPACE",
 	PLATFORM_STRUCTURE_NAMESPACE
 );

@@ -1,11 +1,14 @@
 "use strict";
 
+require( "./platform-structure-path.js" );
+
 const fs = require( "fs" );
-const harden = require( "harden" );
 const path = require( "path" );
 const util = require( "util" );
 
-require( "./platform-structure-path.js" );
+const hardenProperty = (
+	require( `${ PLATFORM_UTILITY_PATH }/harden-property.js` )
+);
 
 const PLATFORM_STRUCTURE_UTILITY_PATH = (
 	path
@@ -17,9 +20,12 @@ const PLATFORM_STRUCTURE_UTILITY_PATH = (
 
 try{
 	if(
-		!	fs
-			.statSync( PLATFORM_STRUCTURE_UTILITY_PATH )
+			fs
+			.statSync(
+				PLATFORM_STRUCTURE_UTILITY_PATH
+			)
 			.isDirectory( )
+		!==	true
 	){
 		console
 		.error(
@@ -46,7 +52,9 @@ catch( error ){
 		"error data:",
 		(
 			util
-			.inspect( error )
+			.inspect(
+				error
+			)
 		)
 	);
 
@@ -54,6 +62,9 @@ catch( error ){
 	.exit( 1 );
 }
 
-harden( "PLATFORM_STRUCTURE_UTILITY_PATH", PLATFORM_STRUCTURE_UTILITY_PATH );
+hardenProperty(
+	"PLATFORM_STRUCTURE_UTILITY_PATH",
+	PLATFORM_STRUCTURE_UTILITY_PATH
+);
 
 module.exports = PLATFORM_STRUCTURE_UTILITY_PATH;

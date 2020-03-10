@@ -1,7 +1,6 @@
 "use strict";
 
 const called = require( "called" );
-const harden = require( "harden" );
 const glob = require( "fast-glob" );
 const util = require( "util" );
 
@@ -13,18 +12,24 @@ const expresSession = require( "express-session" );
 const helmet = require( "helmet" );
 const methodOverride = require( "method-override" );
 
+const hardenProperty = (
+	require( `${ PLATFORM_UTILITY_PATH }/utility/harden-property.js` )
+);
+
 const proceedCallback = (
 	require( `${ PLATFORM_UTILITY_PATH }/proceed-callback.js` )
 );
 
 const PLATFORM_STRUCTURE_SERVICE_SERVER_DONE_STATE = (
 	Symbol
-	.for( "platform-structure-service-server-done" )
+	.for(
+		"platform-structure-service-server-done"
+	)
 );
 
 const PLATFORM_STRUCTURE_SERVICE_SERVER_STATE = [ ];
 
-harden(
+hardenProperty(
 	"PLATFORM_STRUCTURE_SERVICE_SERVER_STATE",
 	PLATFORM_STRUCTURE_SERVICE_SERVER_STATE
 );
@@ -37,26 +42,39 @@ const server = (
 				);
 
 				if(
-					typeof callback == "function"
+						typeof
+						callback
+					==	"function"
 				){
 					callback = called( callback );
 				}
 
 				if(
-					typeof	option.trigger != "undefined"
+						typeof
+						option
+						.trigger
+					!=	"undefined"
 				){
 					return	(
-								await	proceedCallback( option, callback )
+								await	proceedCallback(
+											option,
+											callback
+										)
 							);
 				}
 
 				if(
 						PLATFORM_STRUCTURE_SERVICE_SERVER_STATE
-						.includes( PLATFORM_STRUCTURE_SERVICE_SERVER_DONE_STATE )
+						.includes(
+							PLATFORM_STRUCTURE_SERVICE_SERVER_DONE_STATE
+						)
 					===	true
 				){
 					return	(
-								await	proceedCallback( option, callback )
+								await	proceedCallback(
+											option,
+											callback
+										)
 							);
 				}
 
@@ -102,16 +120,21 @@ const server = (
 					.service
 				=	SERVICE;
 
-				harden(
+				hardenProperty(
 					"SERVICE",
 					SERVICE
 				);
 
 				PLATFORM_STRUCTURE_SERVICE_SERVER_STATE
-				.push( PLATFORM_STRUCTURE_SERVICE_SERVER_DONE_STATE );
+				.push(
+					PLATFORM_STRUCTURE_SERVICE_SERVER_DONE_STATE
+				);
 
 				return	(
-							await	proceedCallback( option, callback )
+							await	proceedCallback(
+										option,
+										callback
+									)
 						);
 			}
 );

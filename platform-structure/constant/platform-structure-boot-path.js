@@ -21,7 +21,9 @@ const PLATFORM_STRUCTURE_BOOT_PATH = (
 try{
 	if(
 			fs
-			.statSync( PLATFORM_STRUCTURE_BOOT_PATH )
+			.statSync(
+				PLATFORM_STRUCTURE_BOOT_PATH
+			)
 			.isDirectory( )
 		!==	true
 	){
@@ -59,7 +61,9 @@ catch( error ){
 	);
 
 	process
-	.exit( 1 );
+	.exit(
+		1
+	);
 }
 
 hardenProperty(
