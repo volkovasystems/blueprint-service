@@ -621,7 +621,7 @@ const restrictShellParameterSchemaList = (
 												.description
 												.replace(
 													shellParameterSchemaReferenceSetPattern,
-													"[general option]"
+													"[generic option]"
 												)
 											);
 									}

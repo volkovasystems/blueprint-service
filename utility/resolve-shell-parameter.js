@@ -161,9 +161,9 @@ const resolveShellParameter = (
 								);
 							}
 
-							const optionProperty = (
+							const parameter = (
 								shellParameterSchemaData
-								.optionProperty
+								.parameter
 							);
 
 							const description = (
@@ -196,7 +196,18 @@ const resolveShellParameter = (
 										","
 									),
 
-									`<${ property }>`
+									(
+										(
+												shellParameterSchemaData
+												.state
+												.includes(
+													"optional"
+												)
+											===	true
+										)
+										?	`[${ property }]`
+										:	`<${ property }>`
+									)
 								]
 								.join( " " ),
 
@@ -235,13 +246,24 @@ const resolveShellParameter = (
 							.option(
 								[
 									[
-										`--${ optionProperty }`,
+										`--${ parameter }`,
 									]
 									.join(
 										","
 									),
 
-									`<${ property }>`
+									(
+										(
+												shellParameterSchemaData
+												.state
+												.includes(
+													"optional"
+												)
+											===	true
+										)
+										?	`[${ property }]`
+										:	`<${ property }>`
+									)
 								]
 								.join( " " ),
 
@@ -278,7 +300,7 @@ const resolveShellParameter = (
 							.action(
 								function( commandData ){
 									const internalOptionProperty = (
-										llamalize( optionProperty )
+										llamalize( parameter )
 									);
 
 									if(

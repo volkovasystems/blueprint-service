@@ -36,6 +36,13 @@ const PLATFORM_LOAD_DONE_STATE = (
 	)
 );
 
+const PLATFORM_LOAD_PROCESS_STATE = (
+	Symbol
+	.for(
+		"platform-load-process"
+	)
+);
+
 const PLATFORM_LOAD_STATE = [ ];
 
 hardenProperty(
@@ -140,6 +147,53 @@ const load = (
 								"option": option
 							};
 				}
+
+				if(
+						PLATFORM_LOAD_STATE
+						.includes(
+							PLATFORM_LOAD_PROCESS_STATE
+						)
+					===	true
+				){
+					if(
+							typeof
+							callback
+						==	"function"
+					){
+						callback(
+							(
+								option
+								.trigger
+							),
+
+							(
+								option
+								.result
+							),
+
+							option
+						);
+					}
+
+					return	{
+								"trigger": (
+									option
+									.trigger
+								),
+
+								"result": (
+									option
+									.result
+								),
+
+								"option": option
+							};
+				}
+
+				PLATFORM_LOAD_STATE
+				.push(
+					PLATFORM_LOAD_PROCESS_STATE
+				);
 
 				/*;
 					@note:

@@ -4,11 +4,5 @@
 		"title": "Platform Structure Service",
 		"description": "Template platform structure service.",
 		"value": "platform-structure"
-	},
-	{
-		"namespace": "platform-transaction",
-		"title": "Platform Transaction Service",
-		"description": "Template platform transaction service.",
-		"value": "platform-transaction"
 	}
 ]
