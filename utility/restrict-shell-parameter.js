@@ -4,7 +4,7 @@ const called = require( "called" );
 const util = require( "util" );
 
 const proceedCallback = (
-	require( "./proceed-callback.js" )
+	require( `${ PLATFORM_UTILITY_PATH }/proceed-callback.js` )
 );
 
 const restrictShellParameter = (

@@ -3,13 +3,16 @@
 const called = require( "called" );
 const fs = require( "fs" ).promises;
 const glob = require( "fast-glob" );
-const harden = require( "harden" );
 const nanoid = require( "nanoid" );
 const path = require( "path" );
 const util = require( "util" );
 
+const hardenProperty = (
+	require( `${ PLATFORM_UTILITY_PATH }/harden-property.js` )
+);
+
 const proceedCallback = (
-	require( "./proceed-callback.js" )
+	require( `${ PLATFORM_UTILITY_PATH }/proceed-callback.js` )
 );
 
 const resolveGlobPathQueryFormat = (
@@ -163,7 +166,7 @@ const resolveShellParameterSchemaList = (
 
 				const SHELL_PARAMETER_SCHEMA_LIST = shellParameterSchemaList;
 
-				harden(
+				hardenProperty(
 					"SHELL_PARAMETER_SCHEMA_LIST",
 					SHELL_PARAMETER_SCHEMA_LIST
 				);

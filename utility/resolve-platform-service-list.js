@@ -2,11 +2,14 @@
 
 const called = require( "called" );
 const fs = require( "fs" ).promises;
-const harden = require( "harden" );
 const util = require( "util" );
 
+const hardenProperty = (
+	require( `${ PLATFORM_UTILITY_PATH }/harden-property.js` )
+);
+
 const proceedCallback = (
-	require( "./proceed-callback.js" )
+	require( `${ PLATFORM_UTILITY_PATH }/proceed-callback.js` )
 );
 
 const PLATFORM_SERVICE_CONFIGURE_PATH = (
@@ -93,7 +96,7 @@ const resolvePlatformServiceList = (
 
 				const PLATFORM_SERVICE_LIST = platformServiceList;
 
-				harden(
+				hardenProperty(
 					"PLATFORM_SERVICE_LIST",
 					PLATFORM_SERVICE_LIST
 				);

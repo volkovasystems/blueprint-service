@@ -1,11 +1,14 @@
 "use strict";
 
 const called = require( "called" );
-const harden = require( "harden" );
 const util = require( "util" );
 
+const hardenProperty = (
+	require( `${ PLATFORM_UTILITY_PATH }/harden-property.js` )
+);
+
 const proceedCallback = (
-	require( "./proceed-callback.js" )
+	require( `${ PLATFORM_UTILITY_PATH }/proceed-callback.js` )
 );
 
 const restrictShellParameterSchemaList = (
@@ -356,22 +359,9 @@ const restrictShellParameterSchemaList = (
 									)
 
 								&&	(
-											"platform"
-										in	shellParameterSchemaData
-									)
-
-								&&	(
-											typeof
 											shellParameterSchemaData
 											.platform
-										==	"string"
-									)
-
-								&&	(
-											shellParameterSchemaData
-											.platform
-											.length
-										>	0
+										!== "generic"
 									)
 							){
 								shellParameterSchemaList
@@ -408,7 +398,7 @@ const restrictShellParameterSchemaList = (
 						.shellParameterSchemaReferenceList
 					=	shellParameterSchemaReferenceList;
 
-					harden(
+					hardenProperty(
 						"SHELL_PARAMETER_SCHEMA_REFERENCE_LIST",
 						shellParameterSchemaReferenceList
 					);
