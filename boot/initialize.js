@@ -1,6 +1,7 @@
 "use strict";
 
 const called = require( "called" );
+const path = require( "path" );
 const util = require( "util" );
 
 const hardenProperty = (
@@ -69,62 +70,91 @@ const initialize = (
 							);
 				}
 
-				await	Promise
-						.all(
-							PLATFORM_SERVICE_LIST
-							.map(
-								( platformServiceData ) => {
-									return	[
-												PLATFORM_PATH,
-												(
-													platformServiceData
-													.namespace
-												),
-												"boot",
-												"initialize.js"
-											]
-											.join(
-												"/"
-											)
-								}
-							)
-							.map(
-								( initializeProcedurePath ) => {
-									const initializeProcedure = (
-										require( initializeProcedurePath )
-									);
+				try{
+					await	Promise
+							.all(
+								PLATFORM_SERVICE_LIST
+								.map(
+									( platformServiceData ) => (
+										path
+										.resolve(
+											PLATFORM_PATH,
+											(
+												platformServiceData
+												.namespace
+											),
+											"boot/initialize.js",
+										)
+									)
+								)
+								.map(
+									( initializeProcedurePath ) => {
+										const initializeProcedure = (
+											require( initializeProcedurePath )
+										);
 
-									if(
+										if(
+												typeof
+												initializeProcedure
+											==	"function"
+										){
+											return	initializeProcedure;
+										}
+										else{
+											return	undefined;
+										}
+									}
+								)
+								.filter(
+									( initializeProcedure ) => (
 											typeof
 											initializeProcedure
 										==	"function"
-									){
-										return	initializeProcedure;
-									}
-									else{
-										return	undefined;
-									}
-								}
-							)
-							.filter(
-								( initializeProcedure ) => (
-										typeof
-										initializeProcedure
-									==	"function"
+									)
 								)
+								.map(
+									( initializeProcedure ) => {
+										return	(
+													async	function( ){
+																return	(
+																			await	initializeProcedure( option )
+																		);
+															}
+												)( );
+									}
+								)
+							);
+				}
+				catch( error ){
+					console
+					.error(
+						"cannot proceed execute initialize procedure",
+
+						"error data:",
+						(
+							util
+							.inspect(
+								error
 							)
-							.map(
-								( initializeProcedure ) => {
-									return	(
-												async	function( ){
-															return	(
-																		await	initializeProcedure( option )
-																	);
-														}
-											)( );
-								}
-							)
-						);
+						)
+					);
+
+						option
+						.trigger
+					=	error;
+
+						option
+						.result
+					=	false;
+
+					return	(
+								await	proceedCallback(
+											option,
+											callback
+										)
+							);
+				}
+
 
 				PLATFORM_SERVICE_INITIALIZE_STATE
 				.push(

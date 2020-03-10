@@ -69,6 +69,18 @@ const initialize = (
 							);
 				}
 
+				/*;
+					@note:
+						Do all initialization procedure here.
+					@end-note
+				*/
+				try{
+
+				}
+				catch( error ){
+
+				}
+
 				PLATFORM_STRUCTURE_SERVICE_INITIALIZE_STATE
 				.push(
 					PLATFORM_STRUCTURE_SERVICE_INITIALIZE_DONE_STATE

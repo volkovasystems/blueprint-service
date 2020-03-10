@@ -164,24 +164,22 @@ const server = (
 								(
 									PLATFORM_SERVICE_LIST
 									.map(
-										( platformServiceData ) => {
-											return	(
-														resolveGlobPathQueryFormat(
-															[
-																PLATFORM_PATH,
-																(
-																	platformServiceData
-																	.namespace
-																),
-																"service",
-																"**/*.js"
-															]
-															.join(
-																"/"
-															)
-														)
-													);
-										}
+										( platformServiceData ) => (
+											resolveGlobPathQueryFormat(
+												[
+													PLATFORM_PATH,
+													(
+														platformServiceData
+														.namespace
+													),
+													"service",
+													"**/*.js"
+												]
+												.join(
+													"/"
+												)
+											)
+										)
 									)
 								),
 

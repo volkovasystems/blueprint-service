@@ -152,7 +152,7 @@ const resolveGlobalModuleList = (
 								.map(
 									( globalModule ) => {
 										return	(
-													async	( ) => {
+													async	function( ){
 																return	(
 																			await	globalModule( )
 																		);

@@ -12,15 +12,15 @@ const proceedCallback = (
 );
 
 const initialize = (
-	require( "./initialize.js" )
+	require( `${ PLATFORM_STRUCTURE_BOOT_PATH }/initialize.js` )
 );
 
 const server = (
-	require( "./server.js" )
+	require( `${ PLATFORM_STRUCTURE_BOOT_PATH }/server.js` )
 );
 
 const finalize = (
-	require( "./finalize.js" )
+	require( `${ PLATFORM_STRUCTURE_BOOT_PATH }/finalize.js` )
 );
 
 const PLATFORM_STRUCTURE_SERVICE_BOOT_DONE_STATE = (
@@ -81,10 +81,15 @@ const boot = (
 							);
 				}
 
-				await	initialize( option );
-				await	server( option );
-				await	finalize( option );
+				try{
+					await	initialize( option );
+					await	server( option );
+					await	finalize( option );
+				}
+				catch( error ){
 
+				}
+				
 				PLATFORM_STRUCTURE_SERVICE_BOOT_STATE
 				.push(
 					PLATFORM_STRUCTURE_SERVICE_BOOT_DONE_STATE

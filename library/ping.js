@@ -2,7 +2,7 @@
 
 const ping = (
 	function ping( option, callback ){
-
+	
 	}
 );
 
