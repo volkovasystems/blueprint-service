@@ -44,21 +44,35 @@ const restrictShellParameter = (
 );
 
 const initialize = (
-	require( "./initialize.js" )
+	require( `${ PLATFORM_BOOT_PATH }/initialize.js` )
 );
 
 const server = (
-	require( "./server.js" )
+	require( `${ PLATFORM_BOOT_PATH }/server.js` )
 );
 
 const finalize = (
-	require( "./finalize.js" )
+	require( `${ PLATFORM_BOOT_PATH }/finalize.js` )
 );
 
 const PLATFORM_SERVICE_BOOT_DONE_STATE = (
 	Symbol
 	.for(
 		"platform-service-boot-done"
+	)
+);
+
+const PLATFORM_SERVICE_BOOT_ABORTED_STATE = (
+	Symbol
+	.for(
+		"platform-service-boot-aborted"
+	)
+);
+
+const PLATFORM_SERVICE_BOOT_ERROR_STATE = (
+	Symbol
+	.for(
+		"platform-service-boot-error"
 	)
 );
 
@@ -113,19 +127,55 @@ const boot = (
 							);
 				}
 
-				await	resolveGlobalModuleList( option );
-				await	resolveShellParameterSchemaList( option );
-				await	resolvePlatformServiceList( option );
-				await	resolvePlatformEnvironmentList( option );
-				await	resolveShellParameter( option );
+				try{
+					await	resolveGlobalModuleList( option );
+					await	resolveShellParameterSchemaList( option );
+					await	resolvePlatformServiceList( option );
+					await	resolvePlatformEnvironmentList( option );
+					await	resolveShellParameter( option );
 
-				await	restrictPlatformServiceList( option );
-				await	restrictShellParameterSchemaList( option );
-				await	restrictShellParameter( option );
+					await	restrictPlatformServiceList( option );
+					await	restrictShellParameterSchemaList( option );
+					await	restrictShellParameter( option );
 
-				await	initialize( option );
-				await	server( option );
-				await	finalize( option );
+					await	initialize( option );
+					await	server( option );
+					await	finalize( option );
+				}
+				catch( error ){
+					PLATFORM_SERVICE_BOOT_STATE
+					.push(
+						PLATFORM_SERVICE_BOOT_ERROR_STATE
+					);
+
+					console
+					.error(
+						"cannot proceed execute boot procedure",
+
+						"error data:",
+						(
+							util
+							.inspect(
+								error
+							)
+						)
+					);
+
+						option
+						.trigger
+					=	error;
+
+						option
+						.result
+					=	false;
+
+					return	(
+								await	proceedCallback(
+											option,
+											callback
+										)
+							);
+				}
 
 				PLATFORM_SERVICE_BOOT_STATE
 				.push(

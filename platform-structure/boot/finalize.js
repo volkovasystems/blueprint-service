@@ -69,6 +69,18 @@ const finalize = (
 							);
 				}
 
+				/*;
+					@note:
+						Do all finalization procedure here.
+					@end-note
+				*/
+				try{
+
+				}
+				catch( error ){
+
+				}
+
 				PLATFORM_STRUCTURE_SERVICE_FINALIZE_STATE
 				.push(
 					PLATFORM_STRUCTURE_SERVICE_FINALIZE_STATE

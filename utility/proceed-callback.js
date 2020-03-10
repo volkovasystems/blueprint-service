@@ -12,19 +12,19 @@ const proceedCallback = (
 						callback
 					==	"function"
 				){
-					callback(
-						(
-							option
-							.trigger
-						),
+					return	callback(
+								(
+									option
+									.trigger
+								),
 
-						(
-							option
-							.result
-						),
+								(
+									option
+									.result
+								),
 
-						option
-					);
+								option
+							);
 				}
 
 				return	{
