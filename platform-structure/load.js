@@ -14,7 +14,7 @@ const PLATFORM_LOAD_DONE_STATE = (
 
 const PLATFORM_LOAD_STATE = [ ];
 
-harden(
+hardenProperty(
 	"PLATFORM_LOAD_STATE",
 	PLATFORM_LOAD_STATE
 );

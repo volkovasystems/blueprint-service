@@ -110,8 +110,9 @@ const hardenProperty = (
 
 		/*;
 			@note:
-				Checking if key exists is intensive because we can define an undefined property
-					and the key will still exists.
+				Checking if key exists is intensive
+				because we can define an undefined property
+				and the key will still exists.
 			@end-note
 		*/
 		if(

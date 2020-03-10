@@ -1,11 +1,14 @@
 "use strict";
 
 const called = require( "called" );
-const harden = require( "harden" );
 const util = require( "util" );
 
+const hardenProperty = (
+	require( `${ PLATFORM_UTILITY_PATH }/harden-property.js` )
+);
+
 const proceedCallback = (
-	require( "./proceed-callback.js" )
+	require( `${ PLATFORM_UTILITY_PATH }/proceed-callback.js` )
 );
 
 const restrictPlatformServiceList = (
@@ -303,7 +306,7 @@ const restrictPlatformServiceList = (
 					.targetPlatformServiceList
 				=	TARGET_PLATFORM_SERVICE_LIST;
 
-				harden(
+				hardenProperty(
 					"TARGET_PLATFORM_SERVICE_LIST",
 					TARGET_PLATFORM_SERVICE_LIST
 				);
