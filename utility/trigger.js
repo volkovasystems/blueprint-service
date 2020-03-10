@@ -2,7 +2,14 @@
 
 const Trigger = (
 	function Trigger( triggerData ){
+		if(
+			this instanceof Trigger
+		){
 
+		}
+		else{
+			
+		}
 	}
 );
 

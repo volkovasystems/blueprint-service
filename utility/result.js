@@ -2,7 +2,14 @@
 
 const Result = (
 	function Result( resultData ){
+		if(
+			this instanceof Result
+		){
 
+		}
+		else{
+
+		}
 	}
 );
 

@@ -2,7 +2,14 @@
 
 const Option = (
 	function Option( optionData ){
+		if(
+			this instanceof Option
+		){
 
+		}
+		else{
+
+		}
 	}
 );
 

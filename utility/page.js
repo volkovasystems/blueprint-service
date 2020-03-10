@@ -2,7 +2,14 @@
 
 const Page = (
 	function Page( pageData ){
+		if(
+			this instanceof Page
+		){
 
+		}
+		else{
+
+		}
 	}
 );
 
