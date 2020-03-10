@@ -1,8 +1,11 @@
 "use strict";
 
 const called = require( "called" );
-const harden = require( "harden" );
 const util = require( "util" );
+
+const hardenProperty = (
+	require( `${ __dirname }/utility/harden-property.js` )
+);
 
 const proceedCallback = (
 	require( `${ PLATFORM_UTILITY_PATH }/proceed-callback.js` )
@@ -20,16 +23,16 @@ const finalize = (
 	require( "./finalize.js" )
 );
 
-const PLATFORM_TRANSACTION_SERVICE_BOOT_DONE_STATE = (
+const PLATFORM_STRUCTURE_SERVICE_BOOT_DONE_STATE = (
 	Symbol
-	.for( "platform-transaction-service-boot-done" )
+	.for( "platform-structure-service-boot-done" )
 );
 
-const PLATFORM_TRANSACTION_SERVICE_BOOT_STATE = [ ];
+const PLATFORM_STRUCTURE_SERVICE_BOOT_STATE = [ ];
 
-harden(
-	"PLATFORM_TRANSACTION_SERVICE_BOOT_STATE",
-	PLATFORM_TRANSACTION_SERVICE_BOOT_STATE
+hardenProperty(
+	"PLATFORM_STRUCTURE_SERVICE_BOOT_STATE",
+	PLATFORM_STRUCTURE_SERVICE_BOOT_STATE
 );
 
 const boot = (
@@ -54,8 +57,8 @@ const boot = (
 				}
 
 				if(
-						PLATFORM_TRANSACTION_SERVICE_BOOT_STATE
-						.includes( PLATFORM_TRANSACTION_SERVICE_BOOT_DONE_STATE )
+						PLATFORM_STRUCTURE_SERVICE_BOOT_STATE
+						.includes( PLATFORM_STRUCTURE_SERVICE_BOOT_DONE_STATE )
 					===	true
 				){
 					return	(
@@ -67,8 +70,8 @@ const boot = (
 				await	server( option );
 				await	finalize( option );
 
-				PLATFORM_TRANSACTION_SERVICE_BOOT_STATE
-				.push( PLATFORM_TRANSACTION_SERVICE_BOOT_DONE_STATE );
+				PLATFORM_STRUCTURE_SERVICE_BOOT_STATE
+				.push( PLATFORM_STRUCTURE_SERVICE_BOOT_DONE_STATE );
 
 				return	(
 							await	proceedCallback( option, callback )

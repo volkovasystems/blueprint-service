@@ -17,16 +17,16 @@ const proceedCallback = (
 	require( `${ PLATFORM_UTILITY_PATH }/proceed-callback.js` )
 );
 
-const PLATFORM_TRANSACTION_SERVICE_SERVER_DONE_STATE = (
+const PLATFORM_STRUCTURE_SERVICE_SERVER_DONE_STATE = (
 	Symbol
-	.for( "platform-transaction-service-server-done" )
+	.for( "platform-structure-service-server-done" )
 );
 
-const PLATFORM_TRANSACTION_SERVICE_SERVER_STATE = [ ];
+const PLATFORM_STRUCTURE_SERVICE_SERVER_STATE = [ ];
 
 harden(
-	"PLATFORM_TRANSACTION_SERVICE_SERVER_STATE",
-	PLATFORM_TRANSACTION_SERVICE_SERVER_STATE
+	"PLATFORM_STRUCTURE_SERVICE_SERVER_STATE",
+	PLATFORM_STRUCTURE_SERVICE_SERVER_STATE
 );
 
 const server = (
@@ -51,8 +51,8 @@ const server = (
 				}
 
 				if(
-						PLATFORM_TRANSACTION_SERVICE_SERVER_STATE
-						.includes( PLATFORM_TRANSACTION_SERVICE_SERVER_DONE_STATE )
+						PLATFORM_STRUCTURE_SERVICE_SERVER_STATE
+						.includes( PLATFORM_STRUCTURE_SERVICE_SERVER_DONE_STATE )
 					===	true
 				){
 					return	(
@@ -107,8 +107,8 @@ const server = (
 					SERVICE
 				);
 
-				PLATFORM_TRANSACTION_SERVICE_SERVER_STATE
-				.push( PLATFORM_TRANSACTION_SERVICE_SERVER_DONE_STATE );
+				PLATFORM_STRUCTURE_SERVICE_SERVER_STATE
+				.push( PLATFORM_STRUCTURE_SERVICE_SERVER_DONE_STATE );
 
 				return	(
 							await	proceedCallback( option, callback )

@@ -8,16 +8,16 @@ const proceedCallback = (
 	require( `${ PLATFORM_UTILITY_PATH }/proceed-callback.js` )
 );
 
-const PLATFORM_TRANSACTION_SERVICE_FINALIZE_DONE_STATE = (
+const PLATFORM_STRUCTURE_SERVICE_FINALIZE_DONE_STATE = (
 	Symbol
-	.for( "platform-transaction-service-finalize-done" )
+	.for( "platform-structure-service-finalize-done" )
 );
 
-const PLATFORM_TRANSACTION_SERVICE_FINALIZE_STATE = [ ];
+const PLATFORM_STRUCTURE_SERVICE_FINALIZE_STATE = [ ];
 
 harden(
-	"PLATFORM_TRANSACTION_SERVICE_FINALIZE_STATE",
-	PLATFORM_TRANSACTION_SERVICE_FINALIZE_STATE
+	"PLATFORM_STRUCTURE_SERVICE_FINALIZE_STATE",
+	PLATFORM_STRUCTURE_SERVICE_FINALIZE_STATE
 );
 
 const finalize = (
@@ -42,8 +42,8 @@ const finalize = (
 				}
 
 				if(
-						PLATFORM_TRANSACTION_SERVICE_FINALIZE_STATE
-						.includes( PLATFORM_TRANSACTION_SERVICE_FINALIZE_DONE_STATE )
+						PLATFORM_STRUCTURE_SERVICE_FINALIZE_STATE
+						.includes( PLATFORM_STRUCTURE_SERVICE_FINALIZE_DONE_STATE )
 					===	true
 				){
 					return	(
@@ -51,8 +51,8 @@ const finalize = (
 							);
 				}
 
-				PLATFORM_TRANSACTION_SERVICE_FINALIZE_STATE
-				.push( PLATFORM_TRANSACTION_SERVICE_FINALIZE_STATE );
+				PLATFORM_STRUCTURE_SERVICE_FINALIZE_STATE
+				.push( PLATFORM_STRUCTURE_SERVICE_FINALIZE_STATE );
 
 				return	(
 							await	proceedCallback( option, callback )

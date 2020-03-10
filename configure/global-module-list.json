@@ -6,9 +6,9 @@
 		"value": "constant/**/*.js"
 	},
 	{
-		"namespace":"platform-transaction-service-constant",
+		"namespace":"platform-structure-service-constant",
 		"title": "Platform Transaction Service Constant",
-		"description": "Template platform transaction service constant",
-		"value": "platform-transaction/constant/**/*.js"
+		"description": "Template platform structure service constant",
+		"value": "platform-structure/constant/**/*.js"
 	}
 ]

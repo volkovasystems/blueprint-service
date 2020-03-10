@@ -12,7 +12,7 @@
 		"example": "",
 		"defaultValue": "",
 
-		"platform": "platform-transaction"
+		"platform": "platform-structure"
 	},
 	{
 		"namespace": "platform-environment",
@@ -27,7 +27,7 @@
 		"example": "",
 		"defaultValue": "local",
 
-		"platform": "platform-transaction"
+		"platform": "platform-structure"
 	},
 	{
 		"namespace": "platform-ip",
@@ -42,7 +42,7 @@
 		"example": "",
 		"defaultValue": "0.0.0.0",
 
-		"platform": "platform-transaction"
+		"platform": "platform-structure"
 	},
 	{
 		"namespace": "platform-port",
@@ -57,6 +57,6 @@
 		"example": "",
 		"defaultValue": 54321,
 
-		"platform": "platform-transaction"
+		"platform": "platform-structure"
 	}
 ]

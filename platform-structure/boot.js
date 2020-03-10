@@ -4,16 +4,16 @@ const called = require( "called" );
 const harden = require( "harden" );
 const util = require( "util" );
 
-const PLATFORM_TRANSACTION_BOOT_DONE_STATE = (
+const PLATFORM_STRUCTURE_BOOT_DONE_STATE = (
 	Symbol
-	.for( "platform-transaction-boot-done" )
+	.for( "platform-structure-boot-done" )
 );
 
-const PLATFORM_TRANSACTION_BOOT_STATE = [ ];
+const PLATFORM_STRUCTURE_BOOT_STATE = [ ];
 
 harden(
-	"PLATFORM_TRANSACTION_BOOT_STATE",
-	PLATFORM_TRANSACTION_BOOT_STATE
+	"PLATFORM_STRUCTURE_BOOT_STATE",
+	PLATFORM_STRUCTURE_BOOT_STATE
 );
 
 const boot = (
@@ -38,8 +38,8 @@ const boot = (
 				}
 
 				if(
-						PLATFORM_TRANSACTION_BOOT_STATE
-						.includes( PLATFORM_TRANSACTION_BOOT_DONE_STATE )
+						PLATFORM_STRUCTURE_BOOT_STATE
+						.includes( PLATFORM_STRUCTURE_BOOT_DONE_STATE )
 					===	true
 				){
 					return	(
@@ -48,7 +48,7 @@ const boot = (
 				}
 
 				const platformTransactionBoot = (
-					require( `${ PLATFORM_TRANSACTION_BOOT_PATH }/boot.js` )
+					require( `${ PLATFORM_STRUCTURE_BOOT_PATH }/boot.js` )
 				);
 
 				try{
@@ -57,7 +57,7 @@ const boot = (
 				catch( error ){
 					console
 					.error(
-						"cannot execute platform transaction boot procedure",
+						"cannot execute platform structure boot procedure",
 
 						"error data:",
 						(
@@ -74,8 +74,8 @@ const boot = (
 							);
 				}
 
-				PLATFORM_TRANSACTION_BOOT_STATE
-				.push( PLATFORM_TRANSACTION_BOOT_DONE_STATE );
+				PLATFORM_STRUCTURE_BOOT_STATE
+				.push( PLATFORM_STRUCTURE_BOOT_DONE_STATE );
 
 				option.result = (
 						option.result
