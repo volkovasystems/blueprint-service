@@ -1,5 +1,22 @@
 [
 	{
+		"namespace": "run-service",
+		"title": "Run Service Option",
+		"description": "",
+		"value": "runService",
+
+		"type": "string",
+		"property": "runService",
+		"parameter": "run-serv",
+		"instruction": "",
+		"example": "",
+		"defaultValue": true,
+		"state": [ ],
+
+		"order": 1,
+		"platform": "platform-structure"
+	},
+	{
 		"namespace": "platform-directory",
 		"title": "Plaform Directory Option",
 		"description": "",
@@ -7,11 +24,13 @@
 
 		"type": "string",
 		"property": "platformDirectory",
-		"optionProperty": "platf-dir",
+		"parameter": "platf-dir",
 		"instruction": "",
 		"example": "",
 		"defaultValue": "",
+		"state": [ ],
 
+		"order": 1,
 		"platform": "platform-structure"
 	},
 	{
@@ -22,11 +41,13 @@
 
 		"type": "string",
 		"property": "platformEnvironment",
-		"optionProperty": "platf-env",
+		"parameter": "platf-env",
 		"instruction": "",
 		"example": "",
 		"defaultValue": "local",
+		"state": [ ],
 
+		"order": 1,
 		"platform": "platform-structure"
 	},
 	{
@@ -37,11 +58,13 @@
 
 		"type": "string",
 		"property": "platformIPAddress",
-		"optionProperty": "platf-ip",
+		"parameter": "platf-ip",
 		"instruction": "",
 		"example": "",
 		"defaultValue": "0.0.0.0",
+		"state": [ ],
 
+		"order": 1,
 		"platform": "platform-structure"
 	},
 	{
@@ -52,11 +75,13 @@
 
 		"type": "number",
 		"property": "platformPortNumber",
-		"optionProperty": "platf-port",
+		"parameter": "platf-port",
 		"instruction": "",
 		"example": "",
 		"defaultValue": 54321,
+		"state": [ ],
 
+		"order": 1,
 		"platform": "platform-structure"
 	}
 ]

@@ -13,7 +13,7 @@ const helmet = require( "helmet" );
 const methodOverride = require( "method-override" );
 
 const hardenProperty = (
-	require( `${ PLATFORM_UTILITY_PATH }/utility/harden-property.js` )
+	require( `${ PLATFORM_UTILITY_PATH }/harden-property.js` )
 );
 
 const proceedCallback = (

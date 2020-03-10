@@ -1,18 +1,41 @@
 [
 	{
+		"namespace": "run-service",
+		"title": "Run Service Option",
+		"description": "",
+		"value": "runService",
+
+		"property": "runService",
+		"parameter": "run-serv",
+
+		"type": "string",
+		"defaultValue": "",
+		"state": [ "optional" ],
+
+		"instruction": "",
+		"example": "",
+
+		"order": 0,
+		"platform": "generic"
+	},
+	{
 		"namespace": "platform-directory",
 		"title": "Plaform Directory Option",
 		"description": "",
 		"value": "platformDirectory",
 
-		"type": "string",
 		"property": "platformDirectory",
-		"optionProperty": "platf-dir",
+		"parameter": "platf-dir",
+
+		"type": "string",
+		"defaultValue": "",
+		"state": [ ],
+
 		"instruction": "",
 		"example": "",
-		"defaultValue": "",
 
-		"order": 0
+		"order": 0,
+		"platform": "generic"
 	},
 	{
 		"namespace": "platform-environment",
@@ -21,13 +44,18 @@
 		"value": "platformEnvironment",
 
 		"type": "string",
+
 		"property": "platformEnvironment",
-		"optionProperty": "platf-env",
+		"parameter": "platf-env",
+
 		"instruction": "",
 		"example": "",
-		"defaultValue": "local",
 
-		"order": 0
+		"defaultValue": "local",
+		"state": [ ],
+
+		"order": 0,
+		"platform": "generic"
 	},
 	{
 		"namespace": "platform-service",
@@ -36,13 +64,18 @@
 		"value": "platformService",
 
 		"type": "string",
+
 		"property": "platformService",
-		"optionProperty": "platf-serv",
+		"parameter": "platf-serv",
+
 		"instruction": "",
 		"example": "",
-		"defaultValue": "",
 
-		"order": 0
+		"defaultValue": "",
+		"state": [ ],
+
+		"order": 0,
+		"platform": "generic"
 	},
 	{
 		"namespace": "platform-ip",
@@ -51,13 +84,18 @@
 		"value": "platformIPAddress",
 
 		"type": "string",
+
 		"property": "platformIPAddress",
-		"optionProperty": "platf-ip",
+		"parameter": "platf-ip",
+
 		"instruction": "",
 		"example": "",
-		"defaultValue": "0.0.0.0",
 
-		"order": 0
+		"defaultValue": "0.0.0.0",
+		"state": [ ],
+
+		"order": 0,
+		"platform": "generic"
 	},
 	{
 		"namespace": "platform-port",
@@ -66,12 +104,17 @@
 		"value": "platformPortNumber",
 
 		"type": "number",
+
 		"property": "platformPortNumber",
-		"optionProperty": "platf-port",
+		"parameter": "platf-port",
+
 		"instruction": "",
 		"example": "",
-		"defaultValue": 54321,
 
-		"order": 0
+		"defaultValue": 54321,
+		"state": [ ],
+
+		"order": 0,
+		"platform": "generic"
 	}
 ]

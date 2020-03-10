@@ -4,7 +4,7 @@ const called = require( "called" );
 const util = require( "util" );
 
 const hardenProperty = (
-	require( `${ PLATFORM_UTILITY_PATH }/utility/harden-property.js` )
+	require( `${ PLATFORM_UTILITY_PATH }/harden-property.js` )
 );
 
 const proceedCallback = (

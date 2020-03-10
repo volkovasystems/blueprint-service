@@ -132,14 +132,14 @@ Object
 			shellParameterSchemaSet,
 			shellParameterSchemaData
 		) => {
-			const optionProperty = shellParameterSchemaData.optionProperty;
+			const parameter = shellParameterSchemaData.parameter;
 
-			shellParameterSchemaSet[ optionProperty ] = (
-					shellParameterSchemaSet[ optionProperty ]
+			shellParameterSchemaSet[ parameter ] = (
+					shellParameterSchemaSet[ parameter ]
 				||	{ }
 			);
 
-			shellParameterSchemaSet[ optionProperty ] = shellParameterSchemaData
+			shellParameterSchemaSet[ parameter ] = shellParameterSchemaData
 
 			return	shellParameterSchemaSet;
 		},

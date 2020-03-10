@@ -352,7 +352,7 @@ const restrictShellProgramHelp = (
 										helpDataToken
 										.replace(
 											shellParameterSchemaReferenceSetPattern,
-											"[general option]"
+											"[generic option]"
 										)
 									);
 							}
