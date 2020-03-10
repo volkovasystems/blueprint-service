@@ -16,7 +16,7 @@ const proceedCallback = (
 );
 
 const resolveGlobPathQueryFormat = (
-	require( "./resolve-glob-path-query-format.js" )
+	require( `${ PLATFORM_UTILITY_PATH }/resolve-glob-path-query-format.js` )
 );
 
 const SHELL_PARAMETER_SCHEMA_LIST_PATH_QUERY = (

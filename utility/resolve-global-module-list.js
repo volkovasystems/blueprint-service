@@ -11,7 +11,7 @@ const proceedCallback = (
 );
 
 const resolveGlobPathQueryFormat = (
-	require( "./resolve-glob-path-query-format.js" )
+	require( `${ PLATFORM_UTILITY_PATH }/resolve-glob-path-query-format.js` )
 );
 
 const GLOBAL_MODULE_LIST_CONFIGURE_PATH = (

@@ -14,15 +14,15 @@ const proceedCallback = (
 );
 
 const restrictPlatformServiceList = (
-	require( "./restrict-platform-service-list.js" )
+	require( `${ PLATFORM_UTILITY_PATH }/restrict-platform-service-list.js` )
 );
 
 const restrictShellParameterSchemaList = (
-	require( "./restrict-shell-parameter-schema-list.js" )
+	require( `${ PLATFORM_UTILITY_PATH }/restrict-shell-parameter-schema-list.js` )
 );
 
 const restrictShellProgramHelp = (
-	require( "./restrict-shell-program-help.js" )
+	require( `${ PLATFORM_UTILITY_PATH }/restrict-shell-program-help.js` )
 );
 
 const resolveShellParameter = (
