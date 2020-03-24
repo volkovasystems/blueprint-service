@@ -6,6 +6,26 @@ const NAMESPACE_FORMAT_PATTERN = (
 
 const checkNamespaceFormat = (
 	function checkNamespaceFormat( namespace ){
+		/*;
+			@parameter-definition:
+				{
+					"namespace": "[@type: string <@required>]"
+				}
+			@end-parameter-definition
+
+			@result-definition:
+				{
+					"result": "[@type: boolean]"
+				}
+			@end-result-definition
+
+			@trigger-definition:
+				{
+					"trigger": "[@type: object as Error <@throwable>]"
+				}
+			@end-trigger-definition
+		*/
+
 		if(
 				(
 						typeof

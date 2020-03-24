@@ -1,13 +1,39 @@
 "use strict";
 
+const checkNamespaceFormat = (
+	require( `${ PLATFORM_UTILITY_PATH }/check-namespace-format.js` )
+);
+
 const separateNamespaceToken = (
 	require( `${ PLATFORM_UTILITY_PATH }/separate-namespace-token.js` )
 );
 
-const LOW_LINE_CHARACTER = '_';
+const LOW_LINE_CHARACTER = (
+	'_'
+);
 
 const formatNamespaceUpperCaseLowLine = (
 	function formatNamespaceUpperCaseLowLine( namespace ){
+		/*;
+			@parameter-definition:
+				{
+					"namespace": "[@type: string <@required>]"
+				}
+			@end-parameter-definition
+
+			@result-definition:
+				{
+					"result": "[@type: string]"
+				}
+			@end-result-definition
+
+			@trigger-definition:
+				{
+					"trigger": "[@type: object as Error <@throwable>]"
+				}
+			@end-trigger-definition
+		*/
+
 		if(
 				(
 						typeof
@@ -55,16 +81,20 @@ const formatNamespaceUpperCaseLowLine = (
 			separateNamespaceToken( namespace )
 		);
 
-		namespaceTokenList
-		.map(
-			( namespaceToken ) => (
-				namespaceToken
-				.toUpperCase( )
+		namespace = (
+			namespaceTokenList
+			.map(
+				( namespaceToken ) => (
+					namespaceToken
+					.toUpperCase( )
+				)
 			)
-		)
-		.join(
-			LOW_LINE_CHARACTER
-		)
+			.join(
+				LOW_LINE_CHARACTER
+			)
+		);
+
+		return	namespace;
 	}
 );
 

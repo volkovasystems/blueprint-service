@@ -4,12 +4,12 @@ const separateNamespaceToken = (
 	require( `${ PLATFORM_UTILITY_PATH }/separate-namespace-token.js` )
 );
 
-const WHITE_SPACE_CHARACTER = (
-	' '
+const EN_DASH_CHARACTER = (
+	'-'
 );
 
-const formatNamespaceSpaceApart = (
-	function formatNamespaceSpaceApart( namespace ){
+const formatNamespaceLowerCaseEnDash = (
+	function formatNamespaceLowerCaseEnDash( namespace ){
 		/*;
 			@parameter-definition:
 				{
@@ -46,7 +46,7 @@ const formatNamespaceSpaceApart = (
 			throw	(
 						new	Error(
 								[
-									"cannot format namespace space apart",
+									"cannot format namespace lower case en dash",
 									"invalid namespace parameter",
 
 									`@namespace: ${ namespace };`
@@ -64,7 +64,7 @@ const formatNamespaceSpaceApart = (
 			throw	(
 						new	Error(
 								[
-									"cannot format namespace space apart",
+									"cannot format namespace lower case en dash",
 									"invalid namespace format",
 
 									`@namespace: ${ namespace };`
@@ -79,8 +79,14 @@ const formatNamespaceSpaceApart = (
 
 		namespace = (
 			namespaceTokenList
+			.map(
+				( namespaceToken ) => (
+					namespaceToken
+					.toLowerCase( )
+				)
+			)
 			.join(
-				WHITE_SPACE_CHARACTER
+				EN_DASH_CHARACTER
 			)
 		);
 
@@ -88,4 +94,4 @@ const formatNamespaceSpaceApart = (
 	}
 );
 
-module.exports = formatNamespaceSpaceApart;
+module.exports = formatNamespaceLowerCaseEnDash;
