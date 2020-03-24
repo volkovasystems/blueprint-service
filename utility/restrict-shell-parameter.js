@@ -245,6 +245,7 @@ const restrictShellParameter = (
 								shellParameterSchemaListStatus
 							===	true
 						)
+
 					&&	(
 								shellParameterStatus
 							===	true
