@@ -310,12 +310,14 @@ const restrictShellParameter = (
 								);
 							}
 							else{
-
-								console
-								.log(
+								hardenProperty(
 									formatNamespaceUpperCaseLowLine(
 										shellParameterProperty
-									)
+									),
+
+									shellParameter[
+										shellParameterProperty
+									]
 								);
 							}
 						}
