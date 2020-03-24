@@ -86,9 +86,9 @@ const server = (
 							);
 				}
 
-				const platformIPAddress = (
+				const platformHostAddress = (
 					SHELL_PARAMETER
-					.platformIPAddress
+					.platformHostAddress
 				);
 
 				const platformPortNumber = (
@@ -199,15 +199,15 @@ const server = (
 						SERVICE
 						.listen(
 							platformPortNumber,
-							platformIPAddress,
+							platformHostAddress,
 
 							function( ){
 								console
 								.log(
 									"boot server done",
 
-									"server ip address:",
-									platformIPAddress,
+									"server host address:",
+									platformHostAddress,
 
 									"server port number:",
 									platformPortNumber
