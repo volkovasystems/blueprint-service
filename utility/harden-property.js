@@ -3,17 +3,13 @@
 const hardenProperty = (
 	function hardenProperty( property, value, entity ){
 		/*;
-			@meta-configuration:
+			@parameter-definition:
 				{
-					"property:required": [
-						"string",
-						"symbol",
-						"number"
-					],
-					"value:required": "*",
-					"entity:optional": "object"
+					"property": "[@type: string|number|boolean <@required>]",
+					"value": "[@type: string|number|boolean|symbol|object|undefined <@required>]",
+					"entity": "[@type: object <@optional>]"
 				}
-			@end-meta-configuration
+			@end-parameter-definition
 		*/
 
 		if(
@@ -57,7 +53,11 @@ const hardenProperty = (
 		){
 			throw	(
 						new	Error(
-								"invalid property"
+								[
+									"invalid property parameter",
+
+									`@property: ${ property };`
+								]
 							)
 					);
 		}
@@ -179,7 +179,11 @@ const hardenProperty = (
 		catch( error ){
 			throw	(
 						new	Error(
-								`cannot harden property, ${ property }`
+								[
+									"cannot harden property",
+
+									`@property: ${ property };`
+								]
 							)
 					);
 		}
