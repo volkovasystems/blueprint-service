@@ -1,17 +1,102 @@
 "use strict";
 
-require( "./platform-path.js" );
-
 const fs = require( "fs" );
+const os = require( "os" );
 const path = require( "path" );
 const util = require( "util" );
 
 const PLATFORM_UTILITY_PATH = (
-	path
-	.resolve(
-		PLATFORM_PATH,
-		"utility"
-	)
+	(
+		function( ){
+			const homeDirectoryPath = (
+					(
+							(
+									(
+											"PLATFORM_DIRECTORY"
+										in	global
+									)
+								===	true
+							)
+
+						&&	(
+									typeof
+									PLATFORM_DIRECTORY
+								==	"string"
+							)
+
+						&&	(
+									PLATFORM_DIRECTORY
+									.length
+								>	0
+							)
+					)
+				?	PLATFORM_DIRECTORY
+				:	(
+						os
+						.homedir( )
+					)
+			);
+
+			const homeDirectoryPathTokenList = (
+				homeDirectoryPath
+				.split(
+					path
+					.sep
+				)
+			);
+
+			const platformDirectoryPathTokenList = (
+				path
+				.resolve(
+					__dirname,
+					"../"
+				)
+				.split(
+					path
+					.sep
+				)
+			);
+
+			const platformDirectoryPath = (
+				path
+				.resolve(
+					homeDirectoryPath,
+
+					(
+						homeDirectoryPathTokenList
+						.filter(
+							pathToken => (
+									platformDirectoryPathTokenList
+									.includes(
+										pathToken
+									)
+								===	false
+							)
+						)
+						.concat(
+							platformDirectoryPathTokenList
+							.filter(
+								pathToken => (
+										homeDirectoryPathTokenList
+										.includes(
+											pathToken
+										)
+									===	false
+								)
+							)
+						)
+						.pop( )
+					)
+				)
+			);
+
+			const platformUtilityPath = (
+				`${ platformDirectoryPath }/utility`
+			);
+
+			return	platformUtilityPath;
+		}
+	)( )
 );
 
 try{
@@ -26,10 +111,10 @@ try{
 		console
 		.error(
 			"cannot manifest platform utility path",
+
 			"invalid platform utility path directory",
 
-			"platform utility path:",
-			PLATFORM_UTILITY_PATH
+			`@PLATFORM_UTILITY_PATH: ${ PLATFORM_UTILITY_PATH }`
 		);
 
 		process
@@ -42,10 +127,10 @@ catch( error ){
 	console
 	.error(
 		"cannot manifest platform utility path",
+
 		"invalid platform utility path directory",
 
-		"platform utility path:",
-		PLATFORM_UTILITY_PATH,
+		`@PLATFORM_UTILITY_PATH: ${ PLATFORM_UTILITY_PATH }`
 
 		"error data:",
 		(
@@ -62,13 +147,58 @@ catch( error ){
 	);
 }
 
-const hardenProperty = (
-	require( `${ PLATFORM_UTILITY_PATH }/harden-property.js` )
-);
+if(
+		(
+				(
+						"PLATFORM_UTILITY_PATH"
+					in	global
+				)
+			!==	true
+		)
 
-hardenProperty(
-	"PLATFORM_UTILITY_PATH",
-	PLATFORM_UTILITY_PATH
-);
+	||	(
+				global
+				.PLATFORM_UTILITY_PATH
+			!==	PLATFORM_UTILITY_PATH
+		)
+){
+	try{
+		Object
+		.defineProperty(
+			global,
+
+			"PLATFORM_UTILITY_PATH",
+
+			{
+				"value": PLATFORM_UTILITY_PATH,
+
+				"configurable": false,
+				"enumerable": false,
+				"writable": false
+			}
+		);
+	}
+	catch( error ){
+		console
+		.error(
+			"cannot manifest platform utility path",
+
+			`@PLATFORM_UTILITY_PATH: ${ PLATFORM_UTILITY_PATH };`
+
+			"error data:",
+			(
+				util
+				.inspect(
+					error
+				)
+			)
+		);
+
+		process
+		.exit(
+			1
+		);
+	}
+}
 
 module.exports = PLATFORM_UTILITY_PATH;

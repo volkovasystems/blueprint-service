@@ -3,17 +3,13 @@
 const hardenProperty = (
 	function hardenProperty( property, value, entity ){
 		/*;
-			@meta-configuration:
+			@parameter-definition:
 				{
-					"property:required": [
-						"string",
-						"symbol",
-						"number"
-					],
-					"value:required": "*",
-					"entity:optional": "object"
+					"property": "[@type: string|number|boolean <@required>]",
+					"value": "[@type: string|number|boolean|symbol|object|undefined <@required>]",
+					"entity": "[@type: object <@optional>]"
 				}
-			@end-meta-configuration
+			@end-parameter-definition
 		*/
 
 		if(
@@ -57,7 +53,11 @@ const hardenProperty = (
 		){
 			throw	(
 						new	Error(
-								"invalid property"
+								[
+									"invalid property parameter",
+
+									`@property: ${ property };`
+								]
 							)
 					);
 		}
@@ -110,8 +110,8 @@ const hardenProperty = (
 
 		/*;
 			@note:
-				Checking if key exists is intensive
-				because we can define an undefined property
+				Key check is intensive,
+				because we can define a property with undefined value
 				and the key will still exists.
 			@end-note
 		*/
@@ -177,9 +177,20 @@ const hardenProperty = (
 			);
 		}
 		catch( error ){
+			console
+			.error(
+				"cannot harden property",
+
+				`@property: ${ property };`
+			);
+
 			throw	(
 						new	Error(
-								`cannot harden property, ${ property }`
+								[
+									"cannot harden property",
+
+									`@property: ${ property };`
+								]
 							)
 					);
 		}

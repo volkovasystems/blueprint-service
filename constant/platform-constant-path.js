@@ -5,7 +5,7 @@ const os = require( "os" );
 const path = require( "path" );
 const util = require( "util" );
 
-const PLATFORM_PATH = (
+const PLATFORM_CONSTANT_PATH = (
 	(
 		function( ){
 			const homeDirectoryPath = (
@@ -90,7 +90,11 @@ const PLATFORM_PATH = (
 				)
 			);
 
-			return	platformDirectoryPath;
+			const platformConstantPath = (
+				`${ platformDirectoryPath }/constant`
+			);
+
+			return	platformConstantPath;
 		}
 	)( )
 );
@@ -99,18 +103,18 @@ try{
 	if(
 			fs
 			.statSync(
-				PLATFORM_PATH
+				PLATFORM_CONSTANT_PATH
 			)
 			.isDirectory( )
 		!==	true
 	){
 		console
 		.error(
-			"cannot manifest platform path",
-			
-			"invalid platform path directory",
+			"cannot manifest platform constant path",
 
-			`@PLATFORM_PATH: ${ PLATFORM_PATH };`
+			"invalid platform constant path directory",
+
+			`@PLATFORM_CONSTANT_PATH: ${ PLATFORM_CONSTANT_PATH }`
 		);
 
 		process
@@ -122,11 +126,11 @@ try{
 catch( error ){
 	console
 	.error(
-		"cannot manifest platform path",
+		"cannot manifest platform constant path",
 
-		"invalid platform path directory",
+		"invalid platform constant path directory",
 
-		`@PLATFORM_PATH: ${ PLATFORM_PATH };`
+		`@PLATFORM_CONSTANT_PATH: ${ PLATFORM_CONSTANT_PATH }`
 
 		"error data:",
 		(
@@ -146,7 +150,7 @@ catch( error ){
 if(
 		(
 				(
-						"PLATFORM_PATH"
+						"PLATFORM_CONSTANT_PATH"
 					in	global
 				)
 			!==	true
@@ -154,8 +158,8 @@ if(
 
 	||	(
 				global
-				.PLATFORM_PATH
-			!==	PLATFORM_PATH
+				.PLATFORM_CONSTANT_PATH
+			!==	PLATFORM_CONSTANT_PATH
 		)
 ){
 	try{
@@ -163,10 +167,10 @@ if(
 		.defineProperty(
 			global,
 
-			"PLATFORM_PATH",
+			"PLATFORM_CONSTANT_PATH",
 
 			{
-				"value": PLATFORM_PATH,
+				"value": PLATFORM_CONSTANT_PATH,
 
 				"configurable": false,
 				"enumerable": false,
@@ -177,9 +181,9 @@ if(
 	catch( error ){
 		console
 		.error(
-			"cannot manifest platform path",
+			"cannot manifest platform constant path",
 
-			`@PLATFORM_PATH: ${ PLATFORM_PATH };`
+			`@PLATFORM_CONSTANT_PATH: ${ PLATFORM_CONSTANT_PATH };`
 
 			"error data:",
 			(
@@ -197,4 +201,4 @@ if(
 	}
 }
 
-module.exports = PLATFORM_PATH;
+module.exports = PLATFORM_CONSTANT_PATH;

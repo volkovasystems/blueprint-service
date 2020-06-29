@@ -3,6 +3,14 @@
 const called = require( "called" );
 const util = require( "util" );
 
+const hardenProperty = (
+	require( `${ PLATFORM_UTILITY_PATH }/harden-property.js` )
+);
+
+const formatNamespaceUpperCaseLowLine = (
+	require( `${ PLATFORM_UTILITY_PATH }/format-namespace-upper-case-low-line.js` )
+);
+
 const proceedCallback = (
 	require( `${ PLATFORM_UTILITY_PATH }/proceed-callback.js` )
 );
@@ -245,6 +253,7 @@ const restrictShellParameter = (
 								shellParameterSchemaListStatus
 							===	true
 						)
+
 					&&	(
 								shellParameterStatus
 							===	true
@@ -298,6 +307,17 @@ const restrictShellParameter = (
 										"writable": false,
 										"configurable": false
 									}
+								);
+							}
+							else{
+								hardenProperty(
+									formatNamespaceUpperCaseLowLine(
+										shellParameterProperty
+									),
+
+									shellParameter[
+										shellParameterProperty
+									]
 								);
 							}
 						}

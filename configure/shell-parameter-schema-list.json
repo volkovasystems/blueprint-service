@@ -78,15 +78,15 @@
 		"platform": "generic"
 	},
 	{
-		"namespace": "platform-ip",
-		"title": "Plaform IP Option",
+		"namespace": "platform-host",
+		"title": "Plaform Host Address Option",
 		"description": "",
-		"value": "platformIPAddress",
+		"value": "platformHostAddress",
 
 		"type": "string",
 
-		"property": "platformIPAddress",
-		"parameter": "platf-ip",
+		"property": "platformHostAddress",
+		"parameter": "platf-host",
 
 		"instruction": "",
 		"example": "",
