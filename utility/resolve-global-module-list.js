@@ -1,10 +1,12 @@
 "use strict";
 
 const called = require( "called" );
-const fs = require( "fs" ).promises;
+const fs = require( "fs" );
 const glob = require( "fast-glob" );
 const path = require( "path" );
 const util = require( "util" );
+
+const fsAsync = fs.promises;
 
 const proceedCallback = (
 	require( `${ PLATFORM_UTILITY_PATH }/proceed-callback.js` )
@@ -57,7 +59,7 @@ const resolveGlobalModuleList = (
 					JSON
 					.parse(
 						(
-							await	fs
+							await	fsAsync
 									.readFile(
 										GLOBAL_MODULE_LIST_CONFIGURE_PATH
 									)
