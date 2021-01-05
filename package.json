@@ -28,7 +28,7 @@
   },
   "engineStrict": true,
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "called": "^0.32.0",
     "commander": "^4.1.1",
